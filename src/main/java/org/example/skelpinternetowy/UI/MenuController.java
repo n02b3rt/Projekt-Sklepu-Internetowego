@@ -1,27 +1,25 @@
 package org.example.skelpinternetowy.UI;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.HBox;
+import javafx.scene.input.MouseEvent;
+import org.example.skelpinternetowy.SklepInternetowy;
 
 import java.io.IOException;
 
-public class MenuController extends HBox{
+public class MenuController {
 
     @FXML
-    private HBox header;
+    public void zmianaScenyNaStroneGlowna(MouseEvent event) {
+        SklepInternetowy.switchScene("/org/example/skelpinternetowy/homePage.fxml");
+    }
+    @FXML
+    public void zmianaScenyNaKoszyk(MouseEvent event) {
+        SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/shoppingCart.fxml");
+    }
 
-    public MenuController(){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("org/example/skelpinternetowy/UI/Menu.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        }catch (IOException e){
-            throw new RuntimeException(e);
-        }
-
+    @FXML
+    public void zmianaScenyNaProfil(MouseEvent event) {
+        SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/userPanel.fxml");
     }
 
 }

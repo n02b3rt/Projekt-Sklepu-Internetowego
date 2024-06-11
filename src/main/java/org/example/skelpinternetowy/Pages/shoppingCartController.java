@@ -1,4 +1,4 @@
-package org.example.skelpinternetowy;
+package org.example.skelpinternetowy.Pages;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
