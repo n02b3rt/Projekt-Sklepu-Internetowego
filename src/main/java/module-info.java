@@ -1,6 +1,8 @@
 module org.example.skelpinternetowy {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.persistence;
+    requires org.hibernate.orm.core;
 
 
     opens org.example.skelpinternetowy to javafx.fxml;

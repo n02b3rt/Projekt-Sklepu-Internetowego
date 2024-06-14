@@ -39,6 +39,40 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Hibernate core dependencies -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.6.4.Final</version> <!-- Adjust version to match your Hibernate version -->
+        </dependency>
+
+        <!-- Hibernate entity manager -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.6.4.Final</version> <!-- Adjust version to match your Hibernate version -->
+        </dependency>
+
+        <!-- Hibernate validator (optional, for bean validation support) -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>7.0.1.Final</version> <!-- Adjust version to match your Hibernate version -->
+        </dependency>
+
+        <!-- JDBC driver for PostgreSQL -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.3.1</version> <!-- Adjust version to match your PostgreSQL driver version -->
+        </dependency>
+
+        <!-- JPA API -->
+        <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>2.2</version> <!-- Adjust version to match your JPA API version -->
+        </dependency>
     </dependencies>
 
     <build>
