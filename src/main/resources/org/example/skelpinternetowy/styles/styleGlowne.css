@@ -1,3 +1,11 @@
 .appContainer {
     -fx-alignment: center;
 }
+.stack-pane {
+    -fx-alignment: center;
+}
+
+.grid-pane {
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+}

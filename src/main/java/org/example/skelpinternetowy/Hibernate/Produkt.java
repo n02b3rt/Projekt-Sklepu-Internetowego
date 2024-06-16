@@ -1,4 +1,4 @@
-package org.example.skelpinternetowy;
+package org.example.skelpinternetowy.Hibernate;
 
 import javax.persistence.*;
 
@@ -18,6 +18,8 @@ public class Produkt {
 
     @Column(name = "cena")
     private Float cena;
+    @Column(name = "urlzdjecia")
+    private String urlZdjecia;
 
     // Getters and setters
     public Long getIdProduktu() {
@@ -50,5 +52,13 @@ public class Produkt {
 
     public void setCena(Float cena) {
         this.cena = cena;
+    }
+
+    public String getUrlZdjecia() {
+        return urlZdjecia;
+    }
+
+    public void setUrlZdjecia(String urlZdjecia) {
+        this.urlZdjecia = urlZdjecia;
     }
 }

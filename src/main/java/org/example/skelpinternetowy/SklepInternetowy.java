@@ -50,6 +50,7 @@ public class SklepInternetowy extends Application {
     }
 
     public static void switchScene(String fxmlFile) {
+        System.out.println("Uruchamia się");
         try {
             Parent newPage = FXMLLoader.load(SklepInternetowy.class.getResource(fxmlFile));
 
@@ -63,6 +64,7 @@ public class SklepInternetowy extends Application {
             e.printStackTrace();
         }
     }
+
 
     public static void main(String[] args) {
         launch(args);

@@ -1,4 +1,4 @@
-package org.example.skelpinternetowy;
+package org.example.skelpinternetowy.Hibernate;
 
 import javax.persistence.*;
 

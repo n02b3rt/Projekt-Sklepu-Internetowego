@@ -1,14 +1,15 @@
-package org.example.skelpinternetowy;
+package org.example.skelpinternetowy.Hibernate;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "klienci")
 public class Klient {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_klienta")
-    private Long idKlienta;
+    private Integer id_klienta;
 
     @Column(name = "imie")
     private String imie;
@@ -28,13 +29,13 @@ public class Klient {
     @Column(name = "adres")
     private String adres;
 
-    // Getters and setters
-    public Long getIdKlienta() {
-        return idKlienta;
+    // Gettery i settery
+    public Integer getId_klienta() {
+        return id_klienta;
     }
 
-    public void setIdKlienta(Long idKlienta) {
-        this.idKlienta = idKlienta;
+    public void setId_klienta(Integer id_klienta) {
+        this.id_klienta = id_klienta;
     }
 
     public String getImie() {
