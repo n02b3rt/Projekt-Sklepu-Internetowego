@@ -1,26 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/sklep_komputerowy</property>
-    <property name="hibernate.connection.username">postgres</property>
-    <property name="hibernate.connection.password">student</property>
-
-    <!-- Hibernate dialect for PostgreSQL -->
+    <property name="hibernate.connection.provider_class">org.hibernate.hikaricp.internal.HikariCPConnectionProvider</property>
+    <property name="hibernate.hikari.dataSourceClassName">org.postgresql.ds.PGSimpleDataSource</property>
+    <property name="hibernate.hikari.dataSource.url">jdbc:postgresql://localhost:5432/sklep_komputerowy</property>
+    <property name="hibernate.hikari.dataSource.user">postgres</property>
+    <property name="hibernate.hikari.dataSource.password">1212</property>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-
-    <!-- Echo all executed SQL to stdout -->
     <property name="hibernate.show_sql">true</property>
-
-    <!-- Drop and re-create the database schema on startup -->
     <property name="hibernate.hbm2ddl.auto">update</property>
-
-    <!-- Scan for annotated classes in the specified package -->
-    <mapping class="org.example.skelpinternetowy.Klient"/>
-   <!-- <mapping class="Produkt"/>
-    <mapping class="Zamowienie"/>-->
+    <mapping class="org.example.skelpinternetowy.Hibernate.Klient"/>
+    <mapping class="org.example.skelpinternetowy.Hibernate.Produkt"/>
+    <mapping class="org.example.skelpinternetowy.Hibernate.Zamowienie"/>
   </session-factory>
 </hibernate-configuration>
