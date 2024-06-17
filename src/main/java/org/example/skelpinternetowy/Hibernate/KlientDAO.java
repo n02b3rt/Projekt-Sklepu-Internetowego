@@ -7,53 +7,53 @@ import java.util.List;
 
 public class KlientDAO {
 
+    // Pobiera wszystkich klientów
     public List<Klient> getAllKlients() {
-        Transaction transaction = null;
         List<Klient> klienci = null;
-
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
+            Transaction transaction = session.beginTransaction();
             klienci = session.createQuery("from Klient", Klient.class).list();
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null && transaction.getStatus().canRollback()) {
-                transaction.rollback();
-            }
             e.printStackTrace();
         }
         return klienci;
     }
 
+    // Pobiera klienta na podstawie nazwy
     public Klient getByNazwa(String nazwa) {
-        Transaction transaction = null;
         Klient klient = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
+            Transaction transaction = session.beginTransaction();
             klient = session.createQuery("from Klient where nazwa = :nazwa", Klient.class)
                     .setParameter("nazwa", nazwa)
                     .uniqueResult();
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null && transaction.isActive()) {
-                transaction.rollback();
-            }
             e.printStackTrace();
         }
         return klient;
     }
 
+    // Dodaje nowego klienta
     public void addKlient(Klient klient) {
-        Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
+            Transaction transaction = session.beginTransaction();
             session.save(klient);
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null && transaction.getStatus().canRollback()) {
-                transaction.rollback();
-            }
-            e.printStackTrace(); // Zastanów się nad użyciem logowania w większych projektach
+            e.printStackTrace();
+        }
+    }
+
+    // Edytuje istniejącego klienta
+    public void editKlient(Klient klient) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.update(klient);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
-

@@ -54,13 +54,11 @@ public class RegisterController {
         String email = emailadr.getText();
         String login = logIn.getText();
         String password = Passwd.getText();
-        boolean regapply = false;
-
-
-
-
-
-                if (name.isEmpty() || surname.isEmpty() || address.isEmpty() || email.isEmpty() || login.isEmpty() || password.isEmpty()) {
+        Klient myKlient = new KlientDAO().getByNazwa(login);
+                if(myKlient!=null) {
+                    registerinfo2.setText("");
+                    registerinfo.setText("Login zajęty!");
+                } else if (name.isEmpty() || surname.isEmpty() || address.isEmpty() || email.isEmpty() || login.isEmpty() || password.isEmpty()) {
                     registerinfo2.setText("");
                     registerinfo.setText("Nie wypełniono wszystkich pól!");
 
@@ -81,7 +79,6 @@ public class RegisterController {
                     KlientDAO klientDAO = new KlientDAO();
                     klientDAO.addKlient(klient);
                     clearFields();
-                    RegisterBtn.setText("Przejdź do logowania");
                 }
 
 
