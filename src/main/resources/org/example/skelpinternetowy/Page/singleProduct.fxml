@@ -54,7 +54,7 @@
                               <Insets bottom="30.0" />
                            </VBox.margin>
                         </Text>
-                        <Button fx:id="dodajDoKoszyka" mnemonicParsing="false" style="-fx-background-color: #ff9f7b; -fx-background-radius: 5; -fx-padding: 10 20 10 20;" text="Dodaj do koszyka" textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="dodajDoKoszyka" mnemonicParsing="false" onMouseClicked="#dodajDoKoszyka" style="-fx-background-color: #ff9f7b; -fx-background-radius: 5; -fx-padding: 10 20 10 20;" text="Dodaj do koszyka" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>

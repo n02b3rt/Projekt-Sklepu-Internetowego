@@ -124,5 +124,10 @@ public class HomePageController {
         return box;
     }
 
+    public static void wyswietlKoszyk(){
+        for (Produkt produkt : SklepInternetowy.koszyk) {
+            System.out.println(produkt.getIdProduktu());
+        }
 
+    }
 }

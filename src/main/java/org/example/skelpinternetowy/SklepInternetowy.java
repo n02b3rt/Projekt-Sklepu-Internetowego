@@ -8,12 +8,19 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.geometry.Pos;
+import org.example.skelpinternetowy.Hibernate.Klient;
+import org.example.skelpinternetowy.Hibernate.KlientDAO;
+import org.example.skelpinternetowy.Hibernate.Produkt;
+import org.example.skelpinternetowy.Hibernate.ProduktDAO;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SklepInternetowy extends Application {
     private static Stage primaryStage;
     public static boolean isLogin = false;
+    public static List<Produkt> koszyk = new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
@@ -39,6 +46,14 @@ public class SklepInternetowy extends Application {
             stage.setTitle("Sklep Internetowy");
             stage.setScene(scene);
             stage.show();
+
+            KlientDAO klientDAO = new KlientDAO();
+            List<Klient> klients = klientDAO.getAllKlients();
+
+            for (Klient klient : klients){
+                System.out.println(klient.getNazwa());
+            }
+
 
         } catch (IOException e) { // problem z wczytaniem pliku FXML
             e.printStackTrace(); // Wypisanie pełnego śladu stosu wyjątku.
