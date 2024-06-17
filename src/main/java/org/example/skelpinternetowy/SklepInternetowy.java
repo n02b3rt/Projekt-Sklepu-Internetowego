@@ -12,7 +12,6 @@ import org.example.skelpinternetowy.Hibernate.Klient;
 import org.example.skelpinternetowy.Hibernate.KlientDAO;
 import org.example.skelpinternetowy.Hibernate.Produkt;
 import org.example.skelpinternetowy.Hibernate.ProduktDAO;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +19,8 @@ import java.util.List;
 public class SklepInternetowy extends Application {
     private static Stage primaryStage;
     public static boolean isLogin = false;
+    public static Klient actualKlient = new Klient();
+  
     public static List<Produkt> koszyk = new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException {
