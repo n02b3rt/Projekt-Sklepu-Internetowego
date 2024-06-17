@@ -43,6 +43,7 @@ public class SklepInternetowy extends Application {
             Scene scene = new Scene(root);
             scene.getStylesheets().add(cssFile);
 
+
             // Konfiguracja i wyświetlenie okna
             stage.setTitle("Sklep Internetowy");
             stage.setScene(scene);

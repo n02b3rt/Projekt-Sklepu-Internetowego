@@ -62,8 +62,12 @@ public class singleProductController {
 
     @FXML
     void dodajDoKoszyka(MouseEvent event) {
-        SklepInternetowy.koszyk.add(this.produkt);
-        HomePageController.wyswietlKoszyk();
+        if(SklepInternetowy.isLogin==true){
+            SklepInternetowy.koszyk.add(this.produkt);
+//            HomePageController.wyswietlKoszyk();
+        }else{
+            SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/LogIn.fxml");
+        }
     }
 
 }

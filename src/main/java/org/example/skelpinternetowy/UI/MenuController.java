@@ -12,7 +12,12 @@ public class MenuController {
     }
     @FXML
     public void zmianaScenyNaKoszyk(MouseEvent event) {
-        SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/shoppingCart.fxml");
+        if(SklepInternetowy.isLogin==true){
+            SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/shoppingCart.fxml");
+        }else{
+            SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/LogIn.fxml");
+        }
+
     }
 
     @FXML
