@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -9,87 +12,109 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.skelpinternetowy.Page.userPanel">
-   <children>
-      <Accordion />
-      <AnchorPane layoutX="-1.0" layoutY="33.0" prefHeight="52.0" prefWidth="289.0" style="-fx-background-color: lightgrey;">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="765.0" prefWidth="1370.0">
          <children>
-            <Text layoutX="-20.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Panel Użytkownika" textAlignment="CENTER" wrappingWidth="363.3333320617676">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-      <GridPane layoutX="11.0" layoutY="103.0" prefHeight="194.0" prefWidth="319.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="319.0" text="Koszyk">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="319.0" text="Poprzednie zamówienia" GridPane.rowIndex="1">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="319.0" text="Edytuj Dane" GridPane.rowIndex="2">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-         </children>
-      </GridPane>
-      <AnchorPane layoutX="364.0" layoutY="92.0" prefHeight="195.0" prefWidth="211.0" style="-fx-background-color: lightgray;">
-         <children>
-            <GridPane layoutX="7.0" layoutY="36.0" prefHeight="178.0" prefWidth="94.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+            <GridPane layoutX="815.0" layoutY="239.0" prefHeight="222.0" prefWidth="495.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="100.9999755859375" minHeight="10.0" prefHeight="89.79996337890626" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="126.60001220703126" minHeight="10.0" prefHeight="125.00003662109376" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Imię:" wrappingWidth="169.336669921875">
+                  <Button fx:id="Btn1LastOrder" mnemonicParsing="false" prefHeight="102.0" prefWidth="495.0" text="Poprzednie zamówienia">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="30.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Btn2UsrInfoEdit" mnemonicParsing="false" prefHeight="84.0" prefWidth="495.0" text="Edytuj dane użytkownika" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+            <GridPane cache="true" layoutX="40.0" layoutY="234.0" prefHeight="447.0" prefWidth="668.0" style="-fx-background-color: lightgray;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Imię:" wrappingWidth="169.336669921875" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="30.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko:" wrappingWidth="91.47000122070312" GridPane.rowIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Nazwisko:" wrappingWidth="144.26998901367188" GridPane.rowIndex="2">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="30.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="169.336669921875" GridPane.rowIndex="2">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Email:" wrappingWidth="169.336669921875" GridPane.rowIndex="3">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="30.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Adres:" wrappingWidth="169.336669921875" GridPane.rowIndex="3">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Adres:" wrappingWidth="169.336669921875" GridPane.rowIndex="4">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="30.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Dane Użytkownika:" wrappingWidth="380.40491104125977">
+                     <font>
+                        <Font size="40.0" />
                      </font>
                   </Text>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </GridPane>
-            <Text layoutX="5.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dane Użytkownika" wrappingWidth="209.2049560546875">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Text>
+            <AnchorPane prefHeight="182.0" prefWidth="1370.0" style="-fx-background-color: lightgrey;">
+               <children>
+                  <ImageView fitHeight="129.0" fitWidth="123.0" layoutX="24.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../images/Logo.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ShoppingCardIcon_Userpanel" fitHeight="84.0" fitWidth="87.0" layoutX="1210.0" layoutY="54.0" onMouseMoved="#Zmianascenynakoszyk" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../images/Icons/cart-shopping-solid.png" />
+                     </image>
+                  </ImageView>
+                  <GridPane layoutX="183.0" layoutY="7.0" prefHeight="156.0" prefWidth="540.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Panel Użytkownika" textAlignment="CENTER" wrappingWidth="558.5332832336426" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="60.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Brzoskwinia.net" wrappingWidth="527.7366790771484">
+                           <font>
+                              <Font size="50.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-   </children>
-</AnchorPane>
+   </content>
+</ScrollPane>
