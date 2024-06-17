@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,11 +13,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.skelpinternetowy.Pages.UserPanelController">
    <content>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1250.0" prefWidth="1349.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="767.0" prefWidth="1349.0">
          <children>
-            <GridPane layoutX="275.0" layoutY="153.0" prefHeight="476.0" prefWidth="800.0">
+            <GridPane layoutX="174.0" layoutY="141.0" prefHeight="476.0" prefWidth="1000.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.0" minWidth="10.0" prefWidth="219.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="686.0" minWidth="10.0" prefWidth="581.0" />
@@ -25,7 +26,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #ff9f7b;">
+                  <VBox prefHeight="480.0" prefWidth="217.0" style="-fx-background-color: #ff9f7b;">
                      <children>
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Panel Użytkownika">
                            <font>
@@ -40,45 +41,92 @@
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField style="-fx-background-color: #ff9f7b;" />
+                        <TextField fx:id="name" editable="false" style="-fx-background-color: #ff9f7b;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></TextField>
                         <Text fill="WHITE" layoutX="35.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="35.0" layoutY="105.0" style="-fx-background-color: #ff9f7b;" />
+                        <TextField fx:id="surname" editable="false" layoutX="35.0" layoutY="105.0" style="-fx-background-color: #ff9f7b;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></TextField>
                         <Text fill="WHITE" layoutX="35.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="35.0" layoutY="148.0" style="-fx-background-color: #ff9f7b;" />
+                        <TextField fx:id="nick" editable="false" layoutX="35.0" layoutY="148.0" style="-fx-background-color: #ff9f7b;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></TextField>
                         <Text fill="WHITE" layoutX="35.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hasło">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="35.0" layoutY="189.0" style="-fx-background-color: #ff9f7b;" />
+                        <PasswordField fx:id="password" editable="false" layoutX="35.0" layoutY="189.0" style="-fx-background-color: #ff9f7b;" />
                         <Text fill="WHITE" layoutX="35.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="35.0" layoutY="230.0" style="-fx-background-color: #ff9f7b;" />
+                        <TextField fx:id="email" editable="false" layoutX="35.0" layoutY="230.0" style="-fx-background-color: #ff9f7b;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></TextField>
                         <Text fill="WHITE" layoutX="35.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adres">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="35.0" layoutY="273.0" style="-fx-background-color: #ff9f7b;" />
-                        <Button contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0);" text="Zmień dane" textFill="#222222" translateX="32.0">
+                        <TextField fx:id="address" editable="false" layoutX="35.0" layoutY="273.0" style="-fx-background-color: #ff9f7b;">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="System Bold" size="12.0" />
+                           </font></TextField>
+                        <Button fx:id="logout" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="37.0" prefWidth="213.0" style="-fx-background-color: trasparent; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0);" text="Wyloguj się" textFill="WHITE" translateX="25.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="changeButton" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#modifyData" prefHeight="37.0" prefWidth="202.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0);" text="Zmień dane" textFill="#2b2929" translateX="32.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
                            </font>
                            <VBox.margin>
-                              <Insets top="87.0" />
+                              <Insets top="30.0" />
                            </VBox.margin>
                         </Button>
+                        <GridPane fx:id="accionButtons" prefWidth="254.0" visible="false">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="cancleButton" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#cancleChanges" prefWidth="100.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0);" text="Anuluj" textAlignment="CENTER" textFill="#222222">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="10.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button fx:id="okButton" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#changeData" prefWidth="100.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0);" text="OK" textAlignment="CENTER" textFill="#222222" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
+                        </GridPane>
                      </children>
                      <padding>
                         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />

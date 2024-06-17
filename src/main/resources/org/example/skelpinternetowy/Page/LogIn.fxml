@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -12,6 +16,7 @@
    <content>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1250.0" prefWidth="1349.0">
          <children>
+
             <Text layoutX="619.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
                <font>
                   <Font size="38.0" />
@@ -31,6 +36,58 @@
             </Text>
             <Button fx:id="loginButton" layoutX="611.0" layoutY="305.0" mnemonicParsing="false" onMouseClicked="#Zaloguj" prefHeight="64.0" prefWidth="109.0" text="Zaloguj" />
             <Button fx:id="registerbtn" layoutX="611.0" layoutY="402.0" mnemonicParsing="false" onMouseClicked="#zmianascenyregister" prefHeight="64.0" prefWidth="109.0" text="Utwórz konto" />
+
+            <VBox alignment="TOP_CENTER" layoutX="389.0" layoutY="160.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #f3e5d3; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0);">
+               <children>
+                  <ImageView fitHeight="161.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../images/Logo.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="loginInput" maxWidth="250.0" minWidth="250.0" prefWidth="250.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hasło">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="15.0" />
+                     </VBox.margin>
+                  </Text>
+                  <PasswordField fx:id="passwordInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
+                  <Text fx:id="loginInfo" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" textOrigin="CENTER" underline="true" wrappingWidth="535.640625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="loginButton" mnemonicParsing="false" onMouseClicked="#Zaloguj" prefHeight="80.0" prefWidth="109.0" style="-fx-background-color: #ff9f7b;" text="Zaloguj" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="25.0" right="25.0" top="30.0" />
+               </padding>
+            </VBox>
          </children>
       </AnchorPane>
    </content>

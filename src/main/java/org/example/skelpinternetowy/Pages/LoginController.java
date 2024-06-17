@@ -47,6 +47,7 @@ public class LoginController {
         SklepInternetowy.isLogin = true;
         loginInfo.setText("Zalogowano pomyślnie");
         SklepInternetowy.switchScene("/homePage.fxml");
+        SklepInternetowy.actualKlient = myKlient;
 
     }
     @FXML
