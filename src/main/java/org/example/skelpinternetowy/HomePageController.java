@@ -65,7 +65,7 @@ public class HomePageController {
         ImageView imageView = new ImageView();
 
         // Ustaw obraz dynamicznie
-        String imagePath = produkt.getUrlZdjecia() + 'g';
+        String imagePath = produkt.getUrlZdjecia();
         System.out.println(imagePath);
         try {
             Image image = new Image(getClass().getResourceAsStream(imagePath));
