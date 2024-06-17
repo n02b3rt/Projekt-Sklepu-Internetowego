@@ -9,7 +9,7 @@ public class Klient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_klienta")
-    private Integer id_klienta;
+    private Integer idKlienta;
 
     @Column(name = "imie")
     private String imie;
@@ -29,13 +29,22 @@ public class Klient {
     @Column(name = "adres")
     private String adres;
 
+    public Klient(Integer idKlienta, String imie, String nazwisko, String nazwa, String haslo, String email, String adres) {
+        this.idKlienta = idKlienta;
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.nazwa = nazwa;
+        this.haslo = haslo;
+        this.email = email;
+        this.adres = adres;
+    }
     // Gettery i settery
-    public Integer getId_klienta() {
-        return id_klienta;
+    public Integer getIdKlienta() {
+        return idKlienta;
     }
 
-    public void setId_klienta(Integer id_klienta) {
-        this.id_klienta = id_klienta;
+    public void setIdKlienta(Integer id_klienta) {
+        this.idKlienta = id_klienta;
     }
 
     public String getImie() {

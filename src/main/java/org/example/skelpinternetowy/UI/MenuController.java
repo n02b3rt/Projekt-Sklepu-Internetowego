@@ -4,13 +4,11 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import org.example.skelpinternetowy.SklepInternetowy;
 
-import java.io.IOException;
-
 public class MenuController {
 
     @FXML
     public void zmianaScenyNaStroneGlowna(MouseEvent event) {
-        SklepInternetowy.switchScene("/org/example/skelpinternetowy/homePage.fxml");
+        SklepInternetowy.switchScene("/homePage.fxml");
     }
     @FXML
     public void zmianaScenyNaKoszyk(MouseEvent event) {

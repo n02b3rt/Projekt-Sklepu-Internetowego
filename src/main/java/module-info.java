@@ -6,6 +6,7 @@ module org.example.skelpinternetowy {
     requires java.naming;
     requires java.sql;
 
+
     opens org.example.skelpinternetowy to org.hibernate.orm.core, javafx.fxml;
     exports org.example.skelpinternetowy;
     exports org.example.skelpinternetowy.Pages;

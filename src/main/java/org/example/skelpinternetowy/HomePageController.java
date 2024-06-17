@@ -16,6 +16,7 @@ import java.util.List;
 
 import static org.example.skelpinternetowy.SklepInternetowy.switchScene;
 
+import java.util.List;
 public class HomePageController {
 
     @FXML
