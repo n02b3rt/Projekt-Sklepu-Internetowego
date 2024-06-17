@@ -5,13 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
-import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -42,11 +40,11 @@ public class HomePageController {
         } else if (produkty.isEmpty()) {
             System.out.println("Lista produktów jest pusta.");
         } else {
+            System.out.println("Liczba produktów: " + produkty.size());
             int row = 0;
             int col = 0;
             for (Produkt produkt : produkty) {
                 VBox productBox = createProductBox(produkt);
-                productBox.setCursor(Cursor.HAND);
                 productGrid.add(productBox, col, row);
 
                 // Ustawienie wyrównania w komórkach GridPane
@@ -64,7 +62,7 @@ public class HomePageController {
 
     private VBox createProductBox(Produkt produkt) {
         VBox box = new VBox();
-        VBox detailsBox = new VBox();
+        box.setSpacing(5);
         box.setAlignment(Pos.CENTER);
 
         // Utwórz pusty ImageView
@@ -72,6 +70,7 @@ public class HomePageController {
 
         // Ustaw obraz dynamicznie
         String imagePath = produkt.getUrlZdjecia();
+        System.out.println(imagePath);
         try {
             Image image = new Image(getClass().getResourceAsStream(imagePath));
             imageView.setImage(image);
@@ -85,20 +84,14 @@ public class HomePageController {
         imageView.setPreserveRatio(true);
 
         Label nazwaLabel = new Label(produkt.getNazwa());
-        nazwaLabel.setStyle("-fx-text-fill: #ffffff; -fx-font-size: 30px; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0.5, 0, 0)");
+        nazwaLabel.setStyle("-fx-font-size: 30px; -fx-font-weight: bold");
         Label cenaLabel = new Label( produkt.getCena()+ " zł");
-        cenaLabel.setStyle("-fx-text-fill: #ffffff; -fx-font-size: 18px; -fx-line-spacing: 100px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0.5, 0, 0) ");
+        cenaLabel.setStyle("-fx-font-size: 18px; -fx-line-spacing: 100px; ");
 
-        detailsBox.getChildren().addAll(nazwaLabel, cenaLabel);
-        detailsBox.setAlignment(Pos.CENTER);
-        detailsBox.setStyle("-fx-padding: 15px 0 15px 0; -fx-background-color: " + SklepInternetowy.mainColor + "; -fx-pref-width: 438px;");
-
-        box.getChildren().addAll(imageView, detailsBox);
-        box.setStyle("-fx-pref-width: 438px; -fx-background-color: #f4f4f4; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0)");
+        box.getChildren().addAll(imageView, nazwaLabel, cenaLabel);
+        box.setStyle("-fx-padding: 0 0 15px 0;-fx-pref-width: 438px; -fx-border-color: black; -fx-border-width: 1px; -fx-background-color: #f4f4f4;");
 
         box.setOnMouseClicked(event -> {
-//            ta metoda jest tu, ponieważ funkcja loadProductData() nie mogła pobrać id z fxml ponieważ nie byl jeszcze zainicjalizowany?
-            System.out.println("zmieniono na scene: " + "/org/example/skelpinternetowy/Page/singleProduct.fxml");
             try {
                 // Załaduj header
                 Parent header = FXMLLoader.load(getClass().getResource("/org/example/skelpinternetowy/UI/Menu.fxml"));
@@ -118,10 +111,6 @@ public class HomePageController {
                 VBox mainLayout = new VBox();
                 mainLayout.getChildren().addAll(header, content);
 
-                // Ustawienie VBox, aby wyśrodkować zawartość
-                VBox.setVgrow(content, Priority.ALWAYS);
-                mainLayout.setAlignment(Pos.CENTER);
-
                 // Zmień scenę
                 Stage stage = (Stage) box.getScene().getWindow();
                 Scene scene = new Scene(mainLayout);
@@ -133,5 +122,12 @@ public class HomePageController {
             }
         });
         return box;
+    }
+
+    public static void wyswietlKoszyk(){
+        for (Produkt produkt : SklepInternetowy.koszyk) {
+            System.out.println(produkt.getIdProduktu());
+        }
+
     }
 }

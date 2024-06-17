@@ -23,10 +23,10 @@ public class singleProductController {
     private Text tytulStrony;
     @FXML
     private ImageView zdjeciaObrazka;
-//    @FXML
-//    public void initialize() {
-//        System.out.println("\n\n\nładuje się scena");
-//    }
+    @FXML
+    public void initialize() {
+        System.out.println("\n\n\nładuje się scena");
+    }
 
     public void loadProductData(){
         this.tytulStrony.setText(this.produkt.getNazwa());
@@ -62,12 +62,8 @@ public class singleProductController {
 
     @FXML
     void dodajDoKoszyka(MouseEvent event) {
-        if(SklepInternetowy.isLogin==true){
-            SklepInternetowy.koszyk.add(this.produkt);
-//            HomePageController.wyswietlKoszyk();
-        }else{
-            SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/LogIn.fxml");
-        }
+        SklepInternetowy.koszyk.add(this.produkt);
+        HomePageController.wyswietlKoszyk();
     }
 
 }

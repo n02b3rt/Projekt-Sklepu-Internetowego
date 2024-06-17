@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -13,6 +12,7 @@ import org.example.skelpinternetowy.Hibernate.Klient;
 import org.example.skelpinternetowy.Hibernate.KlientDAO;
 import org.example.skelpinternetowy.Hibernate.Produkt;
 import org.example.skelpinternetowy.Hibernate.ProduktDAO;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +20,6 @@ import java.util.List;
 public class SklepInternetowy extends Application {
     private static Stage primaryStage;
     public static boolean isLogin = false;
-    public static Klient actualKlient = new Klient();
-    public static String mainColor = "#ff9f7b";
-  
     public static List<Produkt> koszyk = new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException {
@@ -45,12 +42,18 @@ public class SklepInternetowy extends Application {
             Scene scene = new Scene(root);
             scene.getStylesheets().add(cssFile);
 
-
             // Konfiguracja i wyświetlenie okna
-            stage.getIcons().add(new Image( SklepInternetowy.class.getResourceAsStream("/images/Logo.png")));
-            stage.setTitle("Sklep Komputerowy - Brzoskwinia.net");
+            stage.setTitle("Sklep Internetowy");
             stage.setScene(scene);
             stage.show();
+
+            KlientDAO klientDAO = new KlientDAO();
+            List<Klient> klients = klientDAO.getAllKlients();
+
+            for (Klient klient : klients){
+                System.out.println(klient.getNazwa());
+            }
+
 
         } catch (IOException e) { // problem z wczytaniem pliku FXML
             e.printStackTrace(); // Wypisanie pełnego śladu stosu wyjątku.
@@ -61,7 +64,7 @@ public class SklepInternetowy extends Application {
     }
 
     public static void switchScene(String fxmlFile) {
-        System.out.println("zmieniono na scene: " + fxmlFile);
+        System.out.println("Uruchamia się");
         try {
             Parent newPage = FXMLLoader.load(SklepInternetowy.class.getResource(fxmlFile));
 

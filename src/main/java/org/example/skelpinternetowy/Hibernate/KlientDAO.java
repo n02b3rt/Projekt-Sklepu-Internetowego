@@ -41,4 +41,19 @@ public class KlientDAO {
         }
         return klient;
     }
+
+    public void addKlient(Klient klient) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.save(klient);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null && transaction.getStatus().canRollback()) {
+                transaction.rollback();
+            }
+            e.printStackTrace(); // Zastanów się nad użyciem logowania w większych projektach
+        }
+    }
 }
+
