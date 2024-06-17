@@ -6,7 +6,7 @@
     <property name="hibernate.hikari.dataSourceClassName">org.postgresql.ds.PGSimpleDataSource</property>
     <property name="hibernate.hikari.dataSource.url">jdbc:postgresql://localhost:5432/sklep_komputerowy</property>
     <property name="hibernate.hikari.dataSource.user">postgres</property>
-    <property name="hibernate.hikari.dataSource.password">1212</property>
+    <property name="hibernate.hikari.dataSource.password">12345</property>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.hbm2ddl.auto">update</property>

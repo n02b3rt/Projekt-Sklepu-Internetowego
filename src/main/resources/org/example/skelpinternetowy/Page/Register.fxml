@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.skelpinternetowy.Pages.RegisterController">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" onMouseClicked="#Zarejestrujclick" prefHeight="1250.0" prefWidth="1349.0" style="-fx-background-color: f4f4f4;">
+         <children>
+            <Button fx:id="RegisterBtn" layoutX="650.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#Zarejestrujclick" prefHeight="80.0" prefWidth="464.0" style="-fx-background-radius: 5; -fx-background-color: ff9f7b; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0);" text="Zarejestruj" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font></Button>
+            <AnchorPane layoutX="-2.0" layoutY="33.0" prefHeight="686.0" prefWidth="626.0" style="-fx-background-color: ff9f7b; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0);">
+               <children>
+                  <Text fill="WHITE" layoutX="30.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dane Rejestracji:">
+                     <font>
+                        <Font size="38.0" />
+                     </font>
+                  </Text>
+                  <GridPane layoutX="33.0" layoutY="306.0" prefHeight="226.0" prefWidth="558.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.53338623046875" minWidth="10.0" prefWidth="173.66669006347655" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="660.3333129882812" minWidth="10.0" prefWidth="387.5333099365235" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="98.7333251953125" minHeight="10.0" prefHeight="98.7333251953125" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="150.26663818359376" minHeight="10.0" prefHeight="108.86667480468752" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="150.26663818359376" minHeight="10.0" prefHeight="108.86667480468752" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="150.26663818359376" minHeight="10.0" prefHeight="108.86667480468752" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Imię">
+                           <font>
+                              <Font size="38.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Surname" prefHeight="41.0" prefWidth="274.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="38.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="emailadr" prefHeight="41.0" prefWidth="274.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="38.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Name" prefHeight="41.0" prefWidth="274.0" GridPane.columnIndex="1" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Adres" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="38.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="adres" prefHeight="41.0" prefWidth="274.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="35.0" layoutY="85.0" prefHeight="108.0" prefWidth="556.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.53338623046875" minWidth="10.0" prefWidth="123.06660766601561" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="660.3333129882812" minWidth="10.0" prefWidth="415.3333923339845" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="98.7333251953125" minHeight="10.0" prefHeight="98.7333251953125" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="150.26663818359376" minHeight="10.0" prefHeight="108.86667480468752" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+                           <font>
+                              <Font size="38.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="logIn" prefHeight="41.0" prefWidth="274.0" GridPane.columnIndex="1" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Hasło" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="38.0" />
+                           </font>
+                        </Text>
+                        <PasswordField fx:id="Passwd" prefHeight="40.0" prefWidth="424.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <Text fill="WHITE" layoutX="29.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dane Klienta:" wrappingWidth="247.46884155273438">
+                     <font>
+                        <Font size="38.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Text fx:id="registerinfo" fill="#e70000" layoutX="647.0" layoutY="609.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="666.9364624023438">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text fx:id="registerinfo2" fill="#00bf00" layoutX="653.0" layoutY="606.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="658.9363403320312">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Button layoutX="1130.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#Backclick" prefHeight="58.0" prefWidth="188.0" style="-fx-background-radius: 5; -fx-background-color: ff9f7b; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0);" text="Powrót" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="340.0" fitWidth="438.0" layoutX="807.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/Logo.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="755.0" layoutY="506.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brzoskwinia.net" wrappingWidth="498.6524658203125">
+               <font>
+                  <Font size="68.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

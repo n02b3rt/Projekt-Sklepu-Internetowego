@@ -67,6 +67,27 @@
                   <Insets bottom="30.0" left="25.0" right="25.0" top="30.0" />
                </padding>
             </VBox>
+
+            <Text layoutX="619.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Text>
+            <TextField fx:id="loginInput" layoutX="591.0" layoutY="156.0" />
+            <Text layoutX="618.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hasło">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="passwordInput" layoutX="591.0" layoutY="233.0" />
+            <Text fx:id="loginInfo" layoutX="398.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" textOrigin="CENTER" underline="true" wrappingWidth="535.640625">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Button fx:id="loginButton" layoutX="611.0" layoutY="305.0" mnemonicParsing="false" onMouseClicked="#Zaloguj" prefHeight="64.0" prefWidth="109.0" text="Zaloguj" />
+            <Button fx:id="registerbtn" layoutX="611.0" layoutY="402.0" mnemonicParsing="false" onMouseClicked="#zmianascenyregister" prefHeight="64.0" prefWidth="109.0" text="Utwórz konto" />
+
          </children>
       </AnchorPane>
    </content>

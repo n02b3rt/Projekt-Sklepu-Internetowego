@@ -22,6 +22,9 @@ public class LoginController {
     private TextField loginInput;
 
     @FXML
+    private Button registerbtn;
+
+    @FXML
     private PasswordField passwordInput;
 
     @FXML
@@ -46,6 +49,10 @@ public class LoginController {
         SklepInternetowy.switchScene("/homePage.fxml");
         SklepInternetowy.actualKlient = myKlient;
 
+    }
+    @FXML
+    void zmianascenyregister(MouseEvent event) {
+        SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/Register.fxml");
     }
 
 
