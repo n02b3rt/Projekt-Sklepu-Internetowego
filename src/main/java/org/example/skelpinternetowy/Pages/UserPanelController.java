@@ -57,14 +57,14 @@ public class UserPanelController {
     void cancleChanges(MouseEvent event) {
         accionButtons.setVisible(false);
         changeButton.setVisible(true);
-        showFields(false,"#ff9f7b");
+        showFields(false,SklepInternetowy.mainColor);
     }
 
     @FXML
     void changeData(MouseEvent event) {
         accionButtons.setVisible(false);
         changeButton.setVisible(true);
-        showFields(false, "#ff9f7b");
+        showFields(false, SklepInternetowy.mainColor);
     }
 
     @FXML

@@ -23,10 +23,10 @@ public class singleProductController {
     private Text tytulStrony;
     @FXML
     private ImageView zdjeciaObrazka;
-    @FXML
-    public void initialize() {
-        System.out.println("\n\n\nładuje się scena");
-    }
+//    @FXML
+//    public void initialize() {
+//        System.out.println("\n\n\nładuje się scena");
+//    }
 
     public void loadProductData(){
         this.tytulStrony.setText(this.produkt.getNazwa());
