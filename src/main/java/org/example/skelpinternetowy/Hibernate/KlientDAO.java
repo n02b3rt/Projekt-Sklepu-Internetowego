@@ -15,11 +15,29 @@ public class KlientDAO {
             klienci = session.createQuery("from Klient", Klient.class).list();
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) {
+            if (transaction != null && transaction.getStatus().canRollback()) {
                 transaction.rollback();
             }
             e.printStackTrace();
         }
         return klienci;
+    }
+
+    public Klient getByNazwa(String nazwa) {
+        Transaction transaction = null;
+        Klient klient = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            klient = session.createQuery("from Klient where nazwa = :nazwa", Klient.class)
+                    .setParameter("nazwa", nazwa)
+                    .uniqueResult();
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return klient;
     }
 }
