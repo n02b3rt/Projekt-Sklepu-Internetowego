@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class SklepInternetowy extends Application {
     private static Stage primaryStage;
-
+    public static boolean isLogin = false;
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;

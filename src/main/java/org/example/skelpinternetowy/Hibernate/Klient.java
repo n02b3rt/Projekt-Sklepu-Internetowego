@@ -38,6 +38,11 @@ public class Klient {
         this.email = email;
         this.adres = adres;
     }
+
+    public Klient(){
+
+    }
+
     // Gettery i settery
     public Integer getIdKlienta() {
         return idKlienta;

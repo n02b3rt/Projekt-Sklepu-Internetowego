@@ -17,7 +17,11 @@ public class MenuController {
 
     @FXML
     public void zmianaScenyNaProfil(MouseEvent event) {
-        SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/userPanel.fxml");
+        if(SklepInternetowy.isLogin==true){
+            SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/userPanel.fxml");
+        }else{
+            SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/LogIn.fxml");
+        }
     }
 
 }
