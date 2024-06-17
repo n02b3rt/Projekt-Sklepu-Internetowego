@@ -1,22 +1,26 @@
 package org.example.skelpinternetowy;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import org.example.skelpinternetowy.Hibernate.Produkt;
 import org.example.skelpinternetowy.Hibernate.ProduktDAO;
+import org.example.skelpinternetowy.Pages.singleProductController;
 
 import java.util.List;
 
 import static org.example.skelpinternetowy.SklepInternetowy.switchScene;
 
-import java.util.List;
 public class HomePageController {
 
     @FXML
@@ -87,9 +91,35 @@ public class HomePageController {
         box.getChildren().addAll(imageView, nazwaLabel, cenaLabel);
         box.setStyle("-fx-padding: 0 0 15px 0;-fx-pref-width: 438px; -fx-border-color: black; -fx-border-width: 1px; -fx-background-color: #f4f4f4;");
 
-        box.setOnMouseClicked(event ->{
-            System.out.println(produkt.getIdProduktu());
-            switchScene("org/example/skelpinternetowy/Page/singleProduct.fxml");
+        box.setOnMouseClicked(event -> {
+            try {
+                // Załaduj header
+                Parent header = FXMLLoader.load(getClass().getResource("/org/example/skelpinternetowy/UI/Menu.fxml"));
+
+                // Załaduj główną zawartość
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/skelpinternetowy/Page/singleProduct.fxml"));
+                Parent content = loader.load();
+
+                // Uzyskaj kontroler
+                singleProductController nowaInstacjaProduktu = loader.getController();
+
+                // Ustaw produkt w kontrolerze
+                nowaInstacjaProduktu.setProdukt(produkt);
+                nowaInstacjaProduktu.loadProductData();
+
+                // Utwórz główny layout
+                VBox mainLayout = new VBox();
+                mainLayout.getChildren().addAll(header, content);
+
+                // Zmień scenę
+                Stage stage = (Stage) box.getScene().getWindow();
+                Scene scene = new Scene(mainLayout);
+                stage.setScene(scene);
+                stage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
         return box;
     }
