@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.text.Text?>
 
 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.skelpinternetowy.Pages.UserPanelController">
@@ -58,7 +59,7 @@
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="password" editable="false" layoutX="35.0" layoutY="189.0" style="-fx-background-color: #ff9f7b;" />
+                        <PasswordField fx:id="password" editable="false" layoutX="35.0" layoutY="189.0" style="-fx-background-color: #ff9f7b;" />
                         <Text fill="WHITE" layoutX="35.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
                            <font>
                               <Font size="14.0" />
