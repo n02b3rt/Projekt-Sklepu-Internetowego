@@ -39,7 +39,7 @@ public class Klient {
         this.adres = adres;
     }
 
-    public Klient(){
+    public Klient() {
 
     }
 
@@ -99,4 +99,6 @@ public class Klient {
     public void setAdres(String adres) {
         this.adres = adres;
     }
+
+
 }

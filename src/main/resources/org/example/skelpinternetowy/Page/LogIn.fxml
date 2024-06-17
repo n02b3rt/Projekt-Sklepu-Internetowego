@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.skelpinternetowy.Pages.LoginController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.skelpinternetowy.Pages.LoginController">
    <content>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1250.0" prefWidth="1349.0">
          <children>
@@ -30,6 +30,7 @@
                </font>
             </Text>
             <Button fx:id="loginButton" layoutX="611.0" layoutY="305.0" mnemonicParsing="false" onMouseClicked="#Zaloguj" prefHeight="64.0" prefWidth="109.0" text="Zaloguj" />
+            <Button fx:id="registerbtn" layoutX="611.0" layoutY="402.0" mnemonicParsing="false" onMouseClicked="#zmianascenyregister" prefHeight="64.0" prefWidth="109.0" text="Utwórz konto" />
          </children>
       </AnchorPane>
    </content>
