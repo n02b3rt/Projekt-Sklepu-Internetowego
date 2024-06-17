@@ -19,6 +19,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.example.skelpinternetowy.Hibernate.Produkt;
 import org.example.skelpinternetowy.Hibernate.ProduktDAO;
+import org.example.skelpinternetowy.Hibernate.ZamowienieDAO;
 import org.example.skelpinternetowy.SklepInternetowy;
 
 import java.util.List;
@@ -119,7 +120,8 @@ public class shoppingCartController {
 
     @FXML
     void zamowienieProduktow(MouseEvent event) {
-
+//        ZamowienieDAO zamowienieDAO = new ZamowienieDAO();
+//        zamowienieDAO.addZamowienie(SklepInternetowy.koszyk);
     }
 
     private void setCenaLacznie(){

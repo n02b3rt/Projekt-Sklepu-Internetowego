@@ -43,13 +43,6 @@ public class SklepInternetowy extends Application {
             Scene scene = new Scene(root);
             scene.getStylesheets().add(cssFile);
 
-            ZamowienieDAO zamowienieDAO = new ZamowienieDAO();
-            List<Zamowienie> zamowienia = zamowienieDAO.getAllZamowienia();
-
-            for (Zamowienie zamowienie : zamowienia){
-                System.out.println(zamowienie.getIdZamowienia());
-            }
-
             // Konfiguracja i wyświetlenie okna
             stage.getIcons().add(new Image( SklepInternetowy.class.getResourceAsStream("/images/Logo.png")));
             stage.setTitle("Sklep Komputerowy - Brzoskwinia.net");
@@ -79,7 +72,6 @@ public class SklepInternetowy extends Application {
             e.printStackTrace();
         }
     }
-
 
     public static void main(String[] args) {
         launch(args);
