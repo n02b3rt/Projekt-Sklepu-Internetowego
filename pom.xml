@@ -30,7 +30,6 @@
 
         <!-- JUnit dependencies -->
         <dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
@@ -92,6 +91,8 @@
             <artifactId>HikariCP</artifactId>
             <version>5.0.1</version>
         </dependency>
+
+        <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.2.Final</version>
