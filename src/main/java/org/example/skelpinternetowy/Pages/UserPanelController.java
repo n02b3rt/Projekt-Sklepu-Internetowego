@@ -74,6 +74,14 @@ public class UserPanelController {
         showFields(true, "#ffffff");
 
     }
+    @FXML
+    void logout(MouseEvent event){
+        accionButtons.setVisible(true);
+        changeButton.setVisible(false);
+        SklepInternetowy.koszyk.clear();
+        SklepInternetowy.isLogin=false;
+        SklepInternetowy.switchScene("/homePage.fxml");
+    }
 
     private void showFields(boolean stan, String colour){
 
