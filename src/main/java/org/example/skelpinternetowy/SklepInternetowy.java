@@ -9,10 +9,8 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.geometry.Pos;
-import org.example.skelpinternetowy.Hibernate.Klient;
-import org.example.skelpinternetowy.Hibernate.KlientDAO;
-import org.example.skelpinternetowy.Hibernate.Produkt;
-import org.example.skelpinternetowy.Hibernate.ProduktDAO;
+import org.example.skelpinternetowy.Hibernate.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +43,12 @@ public class SklepInternetowy extends Application {
             Scene scene = new Scene(root);
             scene.getStylesheets().add(cssFile);
 
+            ZamowienieDAO zamowienieDAO = new ZamowienieDAO();
+            List<Zamowienie> zamowienia = zamowienieDAO.getAllZamowienia();
+
+            for (Zamowienie zamowienie : zamowienia){
+                System.out.println(zamowienie.getIdZamowienia());
+            }
 
             // Konfiguracja i wyświetlenie okna
             stage.getIcons().add(new Image( SklepInternetowy.class.getResourceAsStream("/images/Logo.png")));

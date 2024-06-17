@@ -1,0 +1,213 @@
+CREATE TABLE klienci (
+  id_klienta SERIAL PRIMARY KEY NOT NULL,
+	imie VARCHAR(50),
+	nazwisko VARCHAR(50),
+  nazwa VARCHAR(100),
+  haslo VARCHAR(50),
+  email VARCHAR(100),
+  adres VARCHAR(100)
+);
+
+CREATE TABLE produkty (
+  id_produktu SERIAL PRIMARY KEY NOT NULL,
+  nazwa VARCHAR(100),
+	opis TEXT,
+  cena FLOAT,
+  urlzdjecia VARCHAR(1024)
+);
+
+CREATE TABLE zamowienia (
+	id_zamowienia SERIAL PRIMARY KEY NOT NULL,
+    nr_zamowienia INT,
+  id_klienta INT,
+  id_produktu INT,
+	ilosc INT,
+  FOREIGN KEY (id_klienta) REFERENCES klienci(id_klienta),
+  FOREIGN KEY (id_produktu) REFERENCES produkty(id_produktu),
+  data_zamowienia TIMESTAMP
+);
+
+INSERT INTO klienci (imie, nazwisko, nazwa, haslo, email, adres) VALUES
+('Anna', 'Kowalska', 'AnkaK', 'aneczka522', 'anna.kowalska@gmail.com', 'ul. Ogrodowa 5, 31-555 Rzeszów'),
+('Jan', 'Nowak', 'NowakJ', 'nowak4571rze',  'jan.nowak@gmail.com', 'ul. Mickiewicz 29, 31-555 Rzeszów'),
+('Maria', 'Wiśniewska', 'MaryśWiśnia', 'wisnia12', 'maria.wisniewska@gmail.com', 'ul. Makłowicza 12, 31-555 Rzeszów'),
+('Andrzej',  'Nowicki', 'Endrju', 'kotipiesek99', 'andrzej.nowicki@gmail.com', 'ul. Kolorowa 4, 31-555 Rzeszów'),
+('Barbara', 'Lewandowska', 'BaśkaL', 'bacha1890lewa', 'barbara.lewandowska@gmail.com', 'ul. Ogrodowa 7, 31-555 Rzeszów'),
+('Krzysztof', 'Piotrowski', 'KrzysiuP22', 'piotrowski15', 'krzysztof.piotrowski@gmail.com', 'ul. Mała 1, 31-555 Rzeszów'),
+('Miłosz', 'Wójcik', 'MiłoWój3', 'pilkarzyk55', 'milosz.wojcik@gmail.com', 'ul. Targowa 8, 31-555 Rzeszów'),
+('Daniel', 'Brzeziński', 'Dan66Brzez', 'moniczkalove<3', 'daniel.brzezinski@gmail.com', 'ul. Słowackiego 41, 31-555 Rzeszów'),
+('Edyta', 'Kwiatkowska', 'EdiKwiatek', 'edyciaitomek62', 'edyta.kwiatkowska@gmail.com', 'ul. Szkolna 13, 31-555 Rzeszów'),
+('Dominika', 'Mróz', 'DomiMrozi', 'whiskas', 'dominika.mroz@gmail.com', 'ul. Zimowa 16, 31-555 Rzeszów'),
+('Teresa', 'Zielińska', 'Ziela19335', 'zielona1teresa', 'teresa.zielinska@gmail.com', 'ul. Podkarpacka 12, 31-555 Rzeszów'),
+('Mateusz', 'Baran', 'MatiBaranek', 'matiowca128', 'mateusz.baran@gmail.com', 'ul. Zielona 5, 31-555 Rzeszów'),
+('Andrzej', 'Pawlak', 'Andrzejek19', 'kargulipawlaksasiedzi', 'andrzej.pawlak@gmail.com', 'ul. Słoneczka 51, 31-555 Rzeszów'),
+('Dawid', 'Lis', 'Lisu19', 'dawidwilk!', 'dawid.lis@gmail.com', 'ul. Leśna 20, 31-555 Rzeszów'),
+('Beata', 'Urbańska', 'Beatka13U', 'becia1979', 'beata.urbanska@gmail.com', 'ul. Wiejska 17, 31-555 Rzeszów'),
+('Bolesław', 'Rutkowski', 'BolekR', 'detektywrutkowski#', 'boleslaw.rutkowski@gmail.com', 'ul. Floriańska 22, 31-555 Rzeszów'),
+('Krystyna', 'Sawicka', 'KrysiaS', 'krysia&krysia11', 'krystyna.sawicka@gmail.com', 'ul. Słowackiego 2, 31-555 Rzeszów'),
+('Ewelina', 'Stępień', 'Ewe19', 'burekkochanypiesek', 'ewelina.stepien@gmail.com', 'ul. Plażowa 18, 31-555 Rzeszów'),
+('Rafał', 'Krupa', 'Rafcio15', 'mamabarbaratatawojciech', 'rafal.krupa@gmail.com', 'ul. Zimowa 20, 31-555 Rzeszów'),
+('Michał', 'Andrzejewski', 'Michal1995', 'footballmoimzyciem<3', 'michal.andrzejewski@gmail.com', 'ul. Podkarpacka 25, 31-555 Rzeszów');
+
+INSERT INTO produkty (nazwa, opis, cena, urlZdjecia) VALUES
+('Komputer', 'Nazwa: PREYON Nest PRO 800 ARGB
+Procesor: Intel Core i5-14400F
+Karta graficzna: RTX 4060
+Płyta główna: Intel B760
+Ilość RAM: 32 GB
+Dysk: SSD 512 GB
+Zasilacz: 650 W', 5099.00, '/images/products/KomputerPREYONNestPRO.jpg'),
+('Komputer', 'Nazwa: Game X G100
+Procesor: Core i3-12100F
+Karta graficzna: RTX 3060
+Płyta główna: Intel H610
+Ilość RAM: 16 GB
+Dysk: SSD 512 GB
+Zasilacz: 550 W', 2799.00, '/images/products/KomputerGameXG100.jpg'),
+('Komputer', 'Nazwa: Game X G500
+Procesor: AMD Ryzen 7 5800X
+Karta graficzna: RTX 4060 Ti
+Płyta główna: AMD B550
+Ilość RAM: 32 GB
+Dysk: SSD 1 TB
+Zasilacz: 750 W', 4799.00, '/images/products/KomputerGameXG500.jpg'),
+('Laptop', 'Nazwa: MSI Thin GF63
+Procesor: Intel Core i5
+Karta graficzna: NVIDIA GeForce RTX 2050
+Wyświetlacz: 15.6"
+Ilość RAM: 8 GB
+Dysk: SSD 512 GB
+Pojemność baterii: 52.5 Wh', 2899.00, '/images/products/LaptopMSIThinGF63.jpg'),
+('Laptop', 'Nazwa: Lenovo IdeaPad Slim 3
+Procesor: Intel Core i5-12450H
+Karta graficzna: Intel UHD Graphics Xe
+Wyświetlacz: 15.6"
+Ilość RAM: 16 GB
+Dysk: SSD 512 GB
+Pojemność baterii: 47 Wh', 2399.00, '/images/products/LaptopLenovoIdeaPadSlim3.jpg'),
+('Laptop', 'Nazwa: HP 255 G9
+Procesor: AMD Ryzen 5 5625U
+Karta graficzna: AMD Radeon RX Vega 7
+Wyświetlacz: 15.6"
+Ilość RAM: 8 GB
+Dysk: SSD 512 GB
+Pojemność baterii: 41 Wh', 1549.00, '/images/products/LaptopHP255G9.jpg'),
+('Dysk', 'Nazwa: SSD Samsung 990 EVO
+Pojemność: 1 TB', 632.13, '/images/products/DyskSSDSamsung990EVO.jpg'),
+('Dysk', 'Nazwa: SSD Lexar NM790
+Pojemność: 2 TB', 596.00, '/images/products/DyskSSDLexarNM790.jpg'),
+('Dysk', 'Nazwa: SSD WD Black SN850X
+Pojemność: 2 TB', 674.00, '/images/products/DyskSSDWDBlackSN850X.jpg'),
+('Karta graficzna', 'Nazwa: Gigabyte GeForce RTX 4090
+Pamięć RAM: 24 GB
+Typ złącza: PCI Express 4.0 x16
+Typ chłodzenia: Wentylator', 8766.99, '/images/products/KartagraficznaGigabyteGeForceRTX4090.jpg'),
+('Karta graficzna', 'Nazwa: Gigabyte GeForce RTX 3060
+Pamięć RAM: 12 GB
+Typ złącza: PCI Express 4.0 x16
+Typ chłodzenia: Wentylator', 1363.69, '/images/products/KartagraficznaGigabyteGeForceRTX3060.jpg'),
+('Karta graficzna', 'Nazwa: Gigabyte GeForce GT 1030
+Pamięć RAM: 2 GB
+Typ złącza: PCI Express 3.0 x16
+Typ chłodzenia: Wentylator', 369.00, '/images/products/KartagraficznaGigabyteGeForceGT1030.jpg'),
+('Obudowa', 'Nazwa: PREYON Nest Meshy+
+Wymiary: 49 x 22.5 x 46.8', 369.00, '/images/products/ObudowaPREYONNestMeshy+.jpg'),
+('Obudowa', 'Nazwa: Genesis Irid 505F
+Wymiary: 51 x 22 x 44.7', 269.00, '/images/products/ObudowaGenesisIrid505F.jpg'),
+('Obudowa', 'Nazwa: Endorfy Arx 700 Air
+Wymiary: 48.6 x 22.8 x 47.2', 469.00, '/images/products/ObudowaEndorfyArx700Air.jpg'),
+('Pamięć RAM', 'Nazwa: Kingston Fury Beast RGB
+Typ: DDR5
+Pojemność: 32 GB', 549.00, '/images/products/PamięćKingstonFuryBeastRGB.jpg'),
+('Pamięć RAM', 'Nazwa: GoodRam IRDM PRO Deep Black
+Typ: DDR4
+Pojemność: 32 GB', 313.00, '/images/products/PamięćGoodRamIRDMPRODeepBlack.jpg'),
+('Pamięć RAM', 'Nazwa: GoodRam IRDM X
+Typ: DDR4
+Pojemność: 32 GB', 288.00, '/images/products/PamięćGoodRamIRDMX.jpg'),
+('Płyta główna', 'Nazwa: Gigabyte B550 AORUS ELITE V2
+Chipset: AMD B550
+Standard: ATX
+Standard pamięci RAM: DDR4', 542.03, '/images/products/PłytagłównaGigabyteB550AORUSELITEV2.jpg'),
+('Płyta główna', 'Nazwa: MSI PRO Z790-S WIFI
+Chipset: Intel Z790
+Standard: ATX
+Standard pamięci RAM: DDR5', 709.00, '/images/products/PłytagłównaMSIPROZ790-SWIFI.jpg'),
+('Płyta główna', 'Nazwa: Gigabyte B650 EAGLE AX
+Chipset: AMD B650
+Standard: ATX
+Standard pamięci RAM: DDR5', 729.00, '/images/products/PłytagłównaGigabyteB650EAGLEAX.jpg'),
+('Procesor', 'Nazwa: Intel Core i5-12400F
+Typ gniazda: Socket 1700
+Liczba rdzeni: 6', 489.00, '/images/products/ProcesorIntelCorei5-12400F.jpg'),
+('Procesor', 'Nazwa: Procesor Intel Core i5-10400F
+Typ gniazda: Socket 1200
+Liczba rdzeni: 6', 469.00, '/images/products/ProcesorIntelCorei5-10400F.jpg'),
+('Procesor', 'Nazwa: AMD Ryzen 5 5600G
+Typ gniazda: Socket AM4
+Liczba rdzeni: 6', 559.00, '/images/products/ProcesorAMDRyzen55600G.jpg'),
+('Zasilacz', 'Nazwa: Endorfy Supremo FM5 Gold
+Moc: 750 W', 457.42, '/images/products/ZasilaczEndorfySupremoFM5Gold.jpg'),
+('Zasilacz', 'Nazwa: Gigabyte P650G
+Moc: 650 W', 269.00, '/images/products/ZasilaczGigabyteP650G.jpg'),
+('Zasilacz', 'Nazwa: MSI MPG A850GF
+Moc: 850 W', 479.00, '/images/products/ZasilaczMSIMPGA850GF.jpg'),
+('Chłodzenie CPU', 'Nazwa: Endorfy Fera 5 Black', 149.00, '/images/products/ChłodzenieCPUEndorfyFera5Black.jpg'),
+('Chłodzenie CPU', 'Nazwa: Be quiet! Dark Rock 4', 305.70, '/images/products/ChłodzenieCPUbequiet!DarkRock4.jpg'),
+('Chłodzenie CPU', 'Nazwa: Endorfy Fera 5 ARGB', 159.00, '/images/products/ChłodzenieCPUEndorfyFera5ARGB.jpg'),
+('Klawiatura', 'Nazwa: PREYON Brown Blitz Claw Gateron', 199.00, '/images/products/KlawiaturaPREYONBrownBlitzClawGateron.jpg'),
+('Klawiatura', 'Nazwa: Logitech Pro X 60 Lightspeed GX', 679.00, '/images/products/KlawiaturaLogitechProX60LightspeedGX.jpg'),
+('Klawiatura', 'Nazwa: Endorfy Thock Compact Wireless Kalih', 295.00, '/images/products/KlawiaturaEndorfyThockCompactWirelessKalih.jpg'),
+('Myszka', 'Nazwa: PREYON Falcon Gaming', 139.00, '/images/products/MyszPREYONFalconGaming.jpg'),
+('Myszka', 'Nazwa: Genesis Krypton 555 ', 79.00, '/images/products/MyszGenesisKrypton555.jpg'),
+('Myszka', 'Nazwa: Razer Basilisk V3', 209.00, '/images/products/MyszRazerBasiliskV3.jpg'),
+('Monitor', 'Nazwa: LG 24MR400-B
+Przekątna ekranu: 24"
+Rozdzielczość: 1920 x 1080', 399.00, '/images/products/MonitorLG24MR400-B.jpg'),
+('Monitor', 'Nazwa: Samsung Odyssey G3
+Przekątna ekranu: 27"
+Rozdzielczość: 1920 x 1080', 699.00, '/images/products/MonitorSamsungOdysseyG3.jpg'),
+('Monitor', 'Nazwa: Lenovo Legion Y27f-30
+Przekątna ekranu: 27"
+Rozdzielczość: 1920 x 1080', 899.00, '/images/products/MonitorLenovoLegionY27f-30.jpg'),
+('Słuchawki', 'Nazwa: PREYON Storm Fly
+Kolor: Czarny', 199.00, '/images/products/SłuchawkiPREYONStormFly.jpg'),
+('Słuchawki', 'Nazwa: HyperX Cloud Alpha S
+Kolor: Niebieski', 365.03, '/images/products/SłuchawkiHyperXCloudAlphaS.jpg'),
+('Słuchawki', 'Nazwa: Genesis Toron 531
+Kolor: Czarny', 128.00, '/images/products/SłuchawkiGenesisToron531.jpg');
+
+
+INSERT INTO zamowienia (id_klienta, nr_zamowienia, id_produktu, ilosc, data_zamowienia) VALUES
+(1, 1, 1, 1, '2024-04-12 19:10:26'),
+(1, 1, 42, 1, '2024-04-13 19:10:26'),
+(2, 2, 5, 1, '2024-04-21 13:32:01'),
+(3, 3, 25, 2, '2024-04-27 21:31:35'),
+(4, 4, 3, 1, '2024-04-30 11:21:45'),
+(4, 4, 38, 1, '2024-05-01 11:21:45'),
+(5, 5, 15, 3, '2024-05-03 09:01:23'),
+(5, 5, 24, 2, '2024-05-05 09:01:23'),
+(6, 6, 10, 1, '2024-05-05 23:43:12'),
+(7, 7, 9, 2, '2024-05-05 18:32:12'),
+(8, 8, 18, 2, '2024-05-11 05:53:07'),
+(9, 9, 32, 1, '2024-05-14 08:23:11'),
+(10, 10, 35, 1, '2024-05-16 10:32:54'),
+(11, 11, 41, 2, '2024-05-17 20:11:23'),
+(12, 12, 15, 1, '2024-05-20 17:35:12'),
+(12, 12, 7, 1, '2024-05-20 17:35:12'),
+(12, 12, 16, 1, '2024-05-20 17:35:12'),
+(12, 12, 11, 1, '2024-05-20 17:35:12'),
+(12, 12, 20, 1, '2024-05-20 17:35:12'),
+(12, 12, 23, 1, '2024-05-20 17:35:12'),
+(12, 12, 25, 1, '2024-05-20 17:35:12'),
+(12, 12, 29, 1, '2024-05-20 17:35:12'),
+(13, 13, 3, 1, '2024-05-28 01:23:43'),
+(14, 14, 42, 1, '2024-06-01 04:01:32'),
+(14, 14, 37, 1, '2024-06-01 04:01:32'),
+(15, 15, 28, 2, '2024-06-04 12:23:41'),
+(16, 16, 11, 1, '2024-06-07 07:34:12'),
+(17, 17, 27, 1, '2024-06-10 14:59:23'),
+(18, 18, 33, 1, '2024-06-13 07:23:45'),
+(19, 19, 4, 1, '2024-06-14 21:01:32'),
+(19, 19, 41, 1, '2024-06-14 21:01:32'),
+(20, 20, 18, 1, '2024-06-15 19:47:53');

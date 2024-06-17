@@ -1,6 +1,7 @@
 package org.example.skelpinternetowy.Hibernate;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "zamowienia")
@@ -9,6 +10,9 @@ public class Zamowienie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_zamowienia")
     private Long idZamowienia;
+
+    @Column(name = "nr_zamowienia")
+    private Integer nrZamowienia;
 
     @ManyToOne
     @JoinColumn(name = "id_klienta")
@@ -21,6 +25,9 @@ public class Zamowienie {
     @Column(name = "ilosc")
     private Integer ilosc;
 
+    @Column(name = "data_zamowienia")
+    private LocalDate dataZamowienia;
+
     // Getters and setters
     public Long getIdZamowienia() {
         return idZamowienia;
@@ -28,6 +35,14 @@ public class Zamowienie {
 
     public void setIdZamowienia(Long idZamowienia) {
         this.idZamowienia = idZamowienia;
+    }
+
+    public Integer getNrZamowienia() {
+        return nrZamowienia;
+    }
+
+    public void setNrZamowienia(Integer nrZamowienia) {
+        this.nrZamowienia = nrZamowienia;
     }
 
     public Klient getKlient() {
@@ -53,4 +68,12 @@ public class Zamowienie {
     public void setIlosc(Integer ilosc) {
         this.ilosc = ilosc;
     }
+    public LocalDate getDataZamowienia() {
+        return dataZamowienia;
+    }
+
+    public void setDataZamowienia(LocalDate dataZamowienia) {
+        this.dataZamowienia.compareTo(dataZamowienia);
+    }
 }
+
