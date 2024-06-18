@@ -25,7 +25,7 @@ import org.example.skelpinternetowy.SklepInternetowy;
 import java.util.List;
 
 public class shoppingCartController {
-    private double cenaLacznie = 0;
+    private float cenaLacznie = 0;
 
     @FXML
     private VBox produktyWKoszyku;
@@ -122,7 +122,7 @@ public class shoppingCartController {
     void zamowienieProduktow(MouseEvent event) {
         ZamowienieDAO zamowienie = new ZamowienieDAO();
         zamowienie.addZamowienie(SklepInternetowy.koszyk);
-        SklepInternetowy.koszyk = null;
+        SklepInternetowy.koszyk.clear();
         SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/userPanel.fxml");
     }
 

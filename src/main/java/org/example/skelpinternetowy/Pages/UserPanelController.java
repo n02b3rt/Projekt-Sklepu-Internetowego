@@ -123,7 +123,9 @@ public class UserPanelController {
     void logout(MouseEvent event){
         accionButtons.setVisible(true);
         changeButton.setVisible(false);
+        if(!SklepInternetowy.koszyk.isEmpty()) {
         SklepInternetowy.koszyk.clear();
+        }
         SklepInternetowy.isLogin=false;
         SklepInternetowy.switchScene("/homePage.fxml");
     }
