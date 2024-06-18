@@ -6,9 +6,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import org.example.skelpinternetowy.Hibernate.Produkt;
+import org.example.skelpinternetowy.Hibernate.ZamowienieDAO;
 import org.example.skelpinternetowy.HomePageController;
 import org.example.skelpinternetowy.SklepInternetowy;
 import javafx.scene.text.Text;
+
+import java.util.List;
 
 public class singleProductController {
     private Produkt produkt;
@@ -67,7 +70,6 @@ public class singleProductController {
         if(SklepInternetowy.isLogin==true){
             SklepInternetowy.koszyk.add(this.produkt);
             dodanoDoKoszyka.setVisible(true);
-//            HomePageController.wyswietlKoszyk();
         }else{
             SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/LogIn.fxml");
         }

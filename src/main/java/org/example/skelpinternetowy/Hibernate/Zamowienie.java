@@ -2,6 +2,7 @@ package org.example.skelpinternetowy.Hibernate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
 
 @Entity
 @Table(name = "zamowienia")
@@ -9,7 +10,7 @@ public class Zamowienie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_zamowienia")
-    private Long idZamowienia;
+    private Integer idZamowienia;
 
     @Column(name = "nr_zamowienia")
     private Integer nrZamowienia;
@@ -25,15 +26,26 @@ public class Zamowienie {
     @Column(name = "ilosc")
     private Integer ilosc;
 
+    public Zamowienie() {
+    }
+
+    public Zamowienie(Integer nrZamowienia, Klient klient, Produkt produkt, Integer ilosc, LocalDate dataZamowienia) {
+        this.nrZamowienia = nrZamowienia;
+        this.klient = klient;
+        this.produkt = produkt;
+        this.ilosc = ilosc;
+        this.dataZamowienia = dataZamowienia;
+    }
+
     @Column(name = "data_zamowienia")
     private LocalDate dataZamowienia;
 
     // Getters and setters
-    public Long getIdZamowienia() {
+    public Integer getIdZamowienia() {
         return idZamowienia;
     }
 
-    public void setIdZamowienia(Long idZamowienia) {
+    public void setIdZamowienia(Integer idZamowienia) {
         this.idZamowienia = idZamowienia;
     }
 
@@ -53,7 +65,7 @@ public class Zamowienie {
         this.klient = klient;
     }
 
-    public Produkt getProdukt() {
+    public Produkt getProdukt() { // Poprawna metoda zwracająca pojedynczy produkt
         return produkt;
     }
 
@@ -73,7 +85,7 @@ public class Zamowienie {
     }
 
     public void setDataZamowienia(LocalDate dataZamowienia) {
-        this.dataZamowienia.compareTo(dataZamowienia);
+        this.dataZamowienia = dataZamowienia;
     }
 }
 

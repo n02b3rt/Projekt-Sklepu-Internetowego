@@ -120,8 +120,10 @@ public class shoppingCartController {
 
     @FXML
     void zamowienieProduktow(MouseEvent event) {
-//        ZamowienieDAO zamowienieDAO = new ZamowienieDAO();
-//        zamowienieDAO.addZamowienie(SklepInternetowy.koszyk);
+        ZamowienieDAO zamowienie = new ZamowienieDAO();
+        zamowienie.addZamowienie(SklepInternetowy.koszyk);
+        SklepInternetowy.koszyk = null;
+        SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/userPanel.fxml");
     }
 
     private void setCenaLacznie(){
