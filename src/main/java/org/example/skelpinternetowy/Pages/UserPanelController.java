@@ -56,8 +56,10 @@ public class UserPanelController {
     private TextField password;
 
     @FXML
-    private TextField surname;
+    private Text tytulstrony;
 
+    @FXML
+    private TextField surname;
 
     @FXML
     public void initialize() {
@@ -216,9 +218,7 @@ public class UserPanelController {
 //            ordersCustomer.setStyle("-fx-padding: 10px;");
 
         } else {
-            Text text = new Text();
-            text.setText("Nie złożyłeś żadnych zamówień");
-            text.setStyle("-fx-font-size: 20px");
+            tytulstrony.setText("Nie złożono żadnych zamówień");
             System.out.println("Nie ma zamówień");
         }
     }
