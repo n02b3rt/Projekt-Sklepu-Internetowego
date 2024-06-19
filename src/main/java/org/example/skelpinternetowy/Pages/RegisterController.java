@@ -11,41 +11,62 @@ import org.example.skelpinternetowy.Hibernate.Klient;
 import org.example.skelpinternetowy.Hibernate.KlientDAO;
 import org.example.skelpinternetowy.SklepInternetowy;
 
+/**
+ * Kontroler dla strony rejestracji użytkownika.
+ * Odpowiada za rejestrowanie nowych użytkowników oraz walidację wprowadzonych danych.
+ */
 public class RegisterController {
 
     @FXML
-    private TextField Name;
+    private TextField Name; // Pole tekstowe dla imienia
 
     @FXML
-    private TextField Registerinfo;
+    private TextField Registerinfo; // Pole tekstowe dla informacji rejestracyjnych
 
     @FXML
-    private TextField backBtn;
+    private TextField backBtn; // Przycisk powrotu
 
     @FXML
-    private PasswordField Passwd;
+    private PasswordField Passwd; // Pole tekstowe dla hasła
 
     @FXML
-    private Button RegisterBtn;
+    private Button RegisterBtn; // Przycisk rejestracji
 
     @FXML
-    private Text registerinfo;
+    private Text registerinfo; // Tekst informacyjny o statusie rejestracji
 
     @FXML
-    private Text registerinfo2;
+    private Text registerinfo2; // Dodatkowy tekst informacyjny o statusie rejestracji
 
     @FXML
-    private TextField Surname;
+    private TextField Surname; // Pole tekstowe dla nazwiska
 
     @FXML
-    private TextField adres;
+    private TextField adres; // Pole tekstowe dla adresu
 
     @FXML
-    private TextField emailadr;
+    private TextField emailadr; // Pole tekstowe dla adresu email
 
     @FXML
-    private TextField logIn;
+    private TextField logIn; // Pole tekstowe dla loginu
 
+    /**
+     * Obsługuje kliknięcie przycisku rejestracji.
+     * Sprawdza poprawność wprowadzonych danych i rejestruje nowego użytkownika.
+     *
+     * Funkcja obsługuje proces rejestracji nowego użytkownika. Najpierw pobiera dane
+     * z pól tekstowych (imię, nazwisko, adres, email, login i hasło). Następnie sprawdza,
+     * czy login jest już zajęty. Jeśli tak, wyświetla odpowiedni komunikat. Jeśli pola
+     * nie są wypełnione lub hasło ma mniej niż 6 znaków, również wyświetla stosowne komunikaty.
+     * W przeciwnym razie tworzy nowego klienta, zapisuje go w bazie danych i czyści pola tekstowe.
+     *
+     * Błędy wyłapywane przez funkcję:
+     * - Login zajęty
+     * - Niewypełnione pola
+     * - Hasło krótsze niż 6 znaków
+     *
+     * @param event zdarzenie kliknięcia myszą
+     */
     @FXML
     void Zarejestrujclick(MouseEvent event) {
         String name = Name.getText();
@@ -54,44 +75,53 @@ public class RegisterController {
         String email = emailadr.getText();
         String login = logIn.getText();
         String password = Passwd.getText();
+
+        // Sprawdza, czy login jest już zajęty
         Klient myKlient = new KlientDAO().getByNazwa(login);
-                if(myKlient!=null) {
-                    registerinfo2.setText("");
-                    registerinfo.setText("Login zajęty!");
-                } else if (name.isEmpty() || surname.isEmpty() || address.isEmpty() || email.isEmpty() || login.isEmpty() || password.isEmpty()) {
-                    registerinfo2.setText("");
-                    registerinfo.setText("Nie wypełniono wszystkich pól!");
-
-                } else if (password.length() < 6) {
-                    registerinfo2.setText("");
-                    registerinfo.setText("Hasło: minimum 6 znaków!");
-                } else {
-
-                    registerinfo.setText("");
-                    registerinfo2.setText("Utworzono konto!");
-                    Klient klient = new Klient();
-                    klient.setImie(name);
-                    klient.setNazwisko(surname);
-                    klient.setAdres(address);
-                    klient.setEmail(email);
-                    klient.setNazwa(login);
-                    klient.setHaslo(password);
-                    KlientDAO klientDAO = new KlientDAO();
-                    klientDAO.addKlient(klient);
-                    clearFields();
-                }
-
-
+        if (myKlient != null) {
+            registerinfo2.setText("");
+            registerinfo.setText("Login zajęty!");
+            // Sprawdza, czy wszystkie pola są wypełnione
+        } else if (name.isEmpty() || surname.isEmpty() || address.isEmpty() || email.isEmpty() || login.isEmpty() || password.isEmpty()) {
+            registerinfo2.setText("");
+            registerinfo.setText("Nie wypełniono wszystkich pól!");
+            // Sprawdza, czy hasło ma odpowiednią długość
+        } else if (password.length() < 6) {
+            registerinfo2.setText("");
+            registerinfo.setText("Hasło: minimum 6 znaków!");
+        } else {
+            // Rejestruje nowego użytkownika
+            registerinfo.setText("");
+            registerinfo2.setText("Utworzono konto!");
+            Klient klient = new Klient();
+            klient.setImie(name);
+            klient.setNazwisko(surname);
+            klient.setAdres(address);
+            klient.setEmail(email);
+            klient.setNazwa(login);
+            klient.setHaslo(password);
+            KlientDAO klientDAO = new KlientDAO();
+            klientDAO.addKlient(klient);
+            clearFields(); // Czyści pola tekstowe po rejestracji
+        }
     }
 
+    /**
+     * Obsługuje kliknięcie przycisku powrotu.
+     * Przełącza scenę na stronę logowania.
+     *
+     * @param event zdarzenie kliknięcia myszą
+     */
     @FXML
     void Backclick(MouseEvent event) {
         SklepInternetowy.switchScene("/org/example/skelpinternetowy/Page/LogIn.fxml");
-
-
     }
 
-
+    /**
+     * Czyści wszystkie pola tekstowe.
+     * Metoda ta jest wywoływana po pomyślnej rejestracji użytkownika, aby
+     * usunąć dane wprowadzone do formularza i przygotować formularz na nową rejestrację.
+     */
     private void clearFields() {
         Name.clear();
         Surname.clear();

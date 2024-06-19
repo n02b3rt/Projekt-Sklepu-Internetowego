@@ -127,7 +127,7 @@
                               </Button>
                            </children>
                         </GridPane>
-                        <Button fx:id="DeleteUserBtn" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#delauser" prefHeight="22.0" prefWidth="264.0" style="-fx-background-color: trasparent; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0); -fx-underline: true;" text="Usuń konto" textAlignment="CENTER" textFill="#050505">
+                        <Button fx:id="DeleteUserBtn" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#delauser" prefHeight="22.0" prefWidth="264.0" style="-fx-background-color: trasparent; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0); -fx-underline: true;" text="Usuń konto" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="10.0" />
                            </font>
