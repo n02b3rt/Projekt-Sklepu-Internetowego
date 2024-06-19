@@ -56,4 +56,14 @@ public class KlientDAO {
             e.printStackTrace();
         }
     }
+
+    public void deleteKlient(Klient klient) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.delete(klient);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

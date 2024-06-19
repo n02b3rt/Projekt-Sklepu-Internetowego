@@ -17,7 +17,7 @@
    <content>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="729.0" prefWidth="1349.0">
          <children>
-            <GridPane layoutX="174.0" layoutY="141.0" prefHeight="476.0" prefWidth="1000.0">
+            <GridPane layoutX="174.0" layoutY="141.0" prefHeight="520.0" prefWidth="1000.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.0" minWidth="10.0" prefWidth="219.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="686.0" minWidth="10.0" prefWidth="581.0" />
@@ -127,6 +127,11 @@
                               </Button>
                            </children>
                         </GridPane>
+                        <Button fx:id="DeleteUserBtn" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#delauser" prefHeight="22.0" prefWidth="264.0" style="-fx-background-color: trasparent; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0, 0); -fx-underline: true;" text="Usuń konto" textAlignment="CENTER" textFill="#050505">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Button>
                      </children>
                      <padding>
                         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />

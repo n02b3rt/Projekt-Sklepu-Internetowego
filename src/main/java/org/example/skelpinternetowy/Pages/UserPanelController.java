@@ -2,10 +2,7 @@ package org.example.skelpinternetowy.Pages;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -32,6 +29,9 @@ public class UserPanelController {
 
     @FXML
     private Button okButton;
+
+    @FXML
+    private Button DeleteUserBtn;
 
     @FXML
     private AnchorPane ordersCustomer;
@@ -77,6 +77,13 @@ public class UserPanelController {
         accionButtons.setVisible(false);
         changeButton.setVisible(true);
         showFields(false,SklepInternetowy.mainColor);
+    }
+
+    @FXML
+    void delauser(MouseEvent event){
+        showAlert2("Czy na pewno chcesz usunąć konto?","Proces ten jest nieodwracalny.");
+
+
     }
 
     @FXML
@@ -156,6 +163,31 @@ public class UserPanelController {
         alert.setHeaderText(messageheader);
         alert.setContentText(message2content);
         alert.showAndWait();
+    }
+
+    private void showAlert2(String messageheader, String message2content) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Potwierdzenie");
+        alert.setHeaderText(messageheader);
+        alert.setContentText(message2content);
+
+        ButtonType buttonTypeYes = new ButtonType("Tak");
+        ButtonType buttonTypeNo = new ButtonType("Nie", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+        alert.showAndWait().ifPresent(type -> {
+            if (type == buttonTypeYes) {
+                // Usunięcie konta
+                KlientDAO klientDAO = new KlientDAO();
+                klientDAO.deleteKlient(SklepInternetowy.actualKlient);
+                SklepInternetowy.actualKlient = null;
+                SklepInternetowy.isLogin = false;
+                SklepInternetowy.koszyk.clear();
+                SklepInternetowy.switchScene("/homePage.fxml");
+                showAlert("Usunięto konto!","Proces został zakończony z sukcesem.");
+            }
+        });
     }
 
     private void showOrders() {
