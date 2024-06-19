@@ -252,10 +252,17 @@ public class UserPanelController {
         ButtonType buttonTypeYes = new ButtonType("Tak");
         ButtonType buttonTypeNo = new ButtonType("Nie", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+        alert.getButtonTypes().setAll(buttonTypeNo, buttonTypeYes);
 
         alert.showAndWait().ifPresent(type -> {
             if (type == buttonTypeYes) {
+                // Usunięcie zamówień klienta
+                ZamowienieDAO zamowienieDAO = new ZamowienieDAO();
+                List<Zamowienie> clientOrders = zamowienieDAO.getAllClientOrder();
+                for (Zamowienie zamowienie : clientOrders) {
+                    zamowienieDAO.deleteZamowienie(zamowienie);
+                }
+
                 // Usunięcie konta
                 KlientDAO klientDAO = new KlientDAO();
                 klientDAO.deleteKlient(SklepInternetowy.actualKlient);
@@ -263,10 +270,10 @@ public class UserPanelController {
                 SklepInternetowy.isLogin = false;
                 SklepInternetowy.koszyk.clear();
                 SklepInternetowy.switchScene("/homePage.fxml");
-                showAlert("Usunięto konto!","Proces został zakończony z sukcesem.");
             }
         });
     }
+
 
 
     /**

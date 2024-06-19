@@ -170,4 +170,29 @@ public class ZamowienieDAO {
                     " Data: " + zamowienie.getDataZamowienia());
         }
     }
+
+    /**
+     * Usuwa zamówienie z bazy danych.
+     *
+     * Funkcja otwiera sesję Hibernate, rozpoczyna transakcję i usuwa przekazane zamówienie
+     * z bazy danych. Po usunięciu zamówienia zatwierdza transakcję i zamyka sesję.
+     * W przypadku wystąpienia błędu wycofuje transakcję i wypisuje ślad stosu błędu.
+     *
+     * @param zamowienie zamówienie do usunięcia
+     */
+    public void deleteZamowienie(Zamowienie zamowienie) {
+        Transaction transaction = null;
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.delete(zamowienie); // Usunięcie zamówienia
+            transaction.commit();
+            session.close();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback(); // Wycofanie transakcji w przypadku błędu
+            }
+            e.printStackTrace();
+        }
+    }
 }
