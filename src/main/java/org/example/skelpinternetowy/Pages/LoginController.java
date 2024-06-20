@@ -51,7 +51,6 @@ public class LoginController {
      *
      * @param event zdarzenie kliknięcia myszą
      */
-
     public void Zaloguj() {
         String login = loginInput.getText();
         String password = passwordInput.getText();
@@ -75,18 +74,29 @@ public class LoginController {
         SklepInternetowy.actualKlient = myKlient; // Ustawia aktualnego klienta
     }
 
+    /**
+     * Obsługuje kliknięcie przycisku logowania.
+     * Wywołuje metodę Zaloguj(), która zajmuje się procesem logowania użytkownika.
+     *
+     * @param event zdarzenie kliknięcia myszą
+     */
     @FXML
-    public void LoginButtonClicked(MouseEvent event){
+    public void LoginButtonClicked(MouseEvent event) {
         Zaloguj();
-
     }
-    // po wciśnięciu enter również ma nastąpić zalogowanie
+
+    /**
+     * Obsługuje naciśnięcie klawisza Enter.
+     * Wywołuje metodę Zaloguj(), jeśli naciśnięty klawisz to Enter, umożliwiając logowanie za pomocą klawiatury.
+     *
+     * @param event zdarzenie naciśnięcia klawisza
+     */
     @FXML
-    public void ListenForEnter(KeyEvent event){
-        if(event.getCode().equals(KeyCode.ENTER)) Zaloguj();
-
+    public void ListenForEnter(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            Zaloguj();
+        }
     }
-
 
     /**
      * Obsługuje kliknięcie przycisku przełączania na stronę rejestracji.

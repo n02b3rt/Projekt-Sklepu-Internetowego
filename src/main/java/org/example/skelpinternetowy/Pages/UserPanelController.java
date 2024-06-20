@@ -26,46 +26,46 @@ import java.util.Map;
 public class UserPanelController {
 
     @FXML
-    private GridPane accionButtons;
+    private GridPane accionButtons;  // Przycisk siatki dla działań
 
     @FXML
-    private Button cancleButton;
+    private Button cancleButton;  // Przycisk anulowania zmian
 
     @FXML
-    private Button logout;
+    private Button logout;  // Przycisk wylogowania
 
     @FXML
-    private Button okButton;
+    private Button okButton;  // Przycisk potwierdzenia zmian
 
     @FXML
-    private Button DeleteUserBtn;
+    private Button DeleteUserBtn;  // Przycisk usunięcia użytkownika
 
     @FXML
-    private AnchorPane ordersCustomer;
+    private AnchorPane ordersCustomer;  // Panel kotwicowy dla zamówień użytkownika
 
     @FXML
-    private Button changeButton;
+    private Button changeButton;  // Przycisk zmiany danych użytkownika
 
     @FXML
-    private TextField address;
+    private TextField address;  // Pole tekstowe adresu użytkownika
 
     @FXML
-    private TextField email;
+    private TextField email;  // Pole tekstowe email użytkownika
 
     @FXML
-    private TextField name;
+    private TextField name;  // Pole tekstowe imienia użytkownika
 
     @FXML
-    private TextField nick;
+    private TextField nick;  // Pole tekstowe loginu użytkownika
 
     @FXML
-    private TextField password;
+    private TextField password;  // Pole tekstowe hasła użytkownika
 
     @FXML
-    private Text tytulstrony;
+    private Text tytulstrony;  // Tytuł strony
 
     @FXML
-    private TextField surname;
+    private TextField surname;  // Pole tekstowe nazwiska użytkownika
 
     /**
      * Inicjalizuje kontroler i ładuje dane użytkownika oraz zamówienia.
@@ -95,7 +95,6 @@ public class UserPanelController {
         // Ustawia pola na nieedytowalne i zmienia kolor tła
         showFields(false, SklepInternetowy.mainColor);
         loadKlientData();
-
     }
 
     /**
@@ -176,6 +175,11 @@ public class UserPanelController {
         showFields(true, "#ffffff");
     }
 
+    /**
+     * Ładuje dane aktualnego klienta do pól tekstowych.
+     * Pobiera dane aktualnie zalogowanego klienta i ustawia odpowiednie pola tekstowe
+     * w formularzu na stronie użytkownika.
+     */
     void loadKlientData(){
         address.setText(SklepInternetowy.actualKlient.getAdres());
         email.setText(SklepInternetowy.actualKlient.getEmail());
@@ -184,6 +188,7 @@ public class UserPanelController {
         password.setText(SklepInternetowy.actualKlient.getHaslo());
         surname.setText(SklepInternetowy.actualKlient.getNazwisko());
     }
+
     /**
      * Wylogowuje użytkownika i przełącza na stronę główną.
      * Czyści koszyk, ustawia status zalogowania na false oraz przełącza scenę na stronę główną.
@@ -206,7 +211,7 @@ public class UserPanelController {
 
     /**
      * Ustawia pola tekstowe jako edytowalne lub nieedytowalne oraz zmienia ich kolor tła.
-     * Ustawia możliwość edycji i kolor tła dla każdego pola tekstowego.
+     * Ustawia możliwość edycji i kolor tła dla każdego pola tekstowego oraz kryje niepotrzebne guziki.
      *
      * @param stan   czy pola powinny być edytowalne
      * @param colour kolor tła pól
@@ -284,8 +289,6 @@ public class UserPanelController {
             }
         });
     }
-
-
 
     /**
      * Wyświetla zamówienia użytkownika.
