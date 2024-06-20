@@ -32,6 +32,9 @@ public class UserPanelController {
     private Button cancleButton;
 
     @FXML
+    private Button logout;
+
+    @FXML
     private Button okButton;
 
     @FXML
@@ -72,12 +75,7 @@ public class UserPanelController {
     @FXML
     public void initialize() {
         // Ustawia pola tekstowe danymi aktualnego klienta
-        address.setText(SklepInternetowy.actualKlient.getAdres());
-        email.setText(SklepInternetowy.actualKlient.getEmail());
-        name.setText(SklepInternetowy.actualKlient.getImie());
-        nick.setText(SklepInternetowy.actualKlient.getNazwa());
-        password.setText(SklepInternetowy.actualKlient.getHaslo());
-        surname.setText(SklepInternetowy.actualKlient.getNazwisko());
+        loadKlientData();
         // Wyświetla zamówienia klienta
         showOrders();
     }
@@ -96,6 +94,8 @@ public class UserPanelController {
         changeButton.setVisible(true);
         // Ustawia pola na nieedytowalne i zmienia kolor tła
         showFields(false, SklepInternetowy.mainColor);
+        loadKlientData();
+
     }
 
     /**
@@ -176,6 +176,14 @@ public class UserPanelController {
         showFields(true, "#ffffff");
     }
 
+    void loadKlientData(){
+        address.setText(SklepInternetowy.actualKlient.getAdres());
+        email.setText(SklepInternetowy.actualKlient.getEmail());
+        name.setText(SklepInternetowy.actualKlient.getImie());
+        nick.setText(SklepInternetowy.actualKlient.getNazwa());
+        password.setText(SklepInternetowy.actualKlient.getHaslo());
+        surname.setText(SklepInternetowy.actualKlient.getNazwisko());
+    }
     /**
      * Wylogowuje użytkownika i przełącza na stronę główną.
      * Czyści koszyk, ustawia status zalogowania na false oraz przełącza scenę na stronę główną.
@@ -184,13 +192,14 @@ public class UserPanelController {
      */
     @FXML
     void logout(MouseEvent event) {
-        // Czyści koszyk i ustawia status zalogowania na false
+        // Czyści koszyk, ustawia status zalogowania na false
         accionButtons.setVisible(true);
         changeButton.setVisible(false);
         if (!SklepInternetowy.koszyk.isEmpty()) {
             SklepInternetowy.koszyk.clear();
         }
         SklepInternetowy.isLogin = false;
+        SklepInternetowy.actualKlient = new Klient();
         // Przełącza scenę na stronę główną
         SklepInternetowy.switchScene("/homePage.fxml");
     }
@@ -205,7 +214,7 @@ public class UserPanelController {
     private void showFields(boolean stan, String colour) {
         String backgroundColour = "-fx-background-color: " + colour + ";";
 
-        // Ustawia możliwość edycji i kolor tła dla każdego pola tekstowego
+        // Ustawia możliwość edycji i kolor tła dla każdego pola tekstowego i kryje niepotrzebne guziki
         address.setEditable(stan);
         address.setStyle(backgroundColour);
         email.setEditable(stan);
@@ -218,6 +227,8 @@ public class UserPanelController {
         password.setStyle(backgroundColour);
         surname.setEditable(stan);
         surname.setStyle(backgroundColour);
+        DeleteUserBtn.setVisible(!stan);
+        logout.setVisible(!stan);
     }
 
     /**

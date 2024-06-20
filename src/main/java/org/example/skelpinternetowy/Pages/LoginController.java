@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import org.example.skelpinternetowy.Hibernate.Klient;
@@ -49,8 +51,8 @@ public class LoginController {
      *
      * @param event zdarzenie kliknięcia myszą
      */
-    @FXML
-    public void Zaloguj(MouseEvent event) {
+
+    public void Zaloguj() {
         String login = loginInput.getText();
         String password = passwordInput.getText();
 
@@ -72,6 +74,19 @@ public class LoginController {
         SklepInternetowy.switchScene("/homePage.fxml"); // Przełącza scenę na stronę główną
         SklepInternetowy.actualKlient = myKlient; // Ustawia aktualnego klienta
     }
+
+    @FXML
+    public void LoginButtonClicked(MouseEvent event){
+        Zaloguj();
+
+    }
+    // po wciśnięciu enter również ma nastąpić zalogowanie
+    @FXML
+    public void ListenForEnter(KeyEvent event){
+        if(event.getCode().equals(KeyCode.ENTER)) Zaloguj();
+
+    }
+
 
     /**
      * Obsługuje kliknięcie przycisku przełączania na stronę rejestracji.
